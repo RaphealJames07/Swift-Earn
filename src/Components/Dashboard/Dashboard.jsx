@@ -19,11 +19,10 @@ import {MdOutlineMenu} from "react-icons/md";
 import {GoDatabase} from "react-icons/go";
 import {HiMiniUser} from "react-icons/hi2";
 import {FiLogOut} from "react-icons/fi";
-import { useState, useEffect, useRef } from "react";
+import {useState, useEffect, useRef} from "react";
+import {Outlet} from "react-router-dom";
 
 const Dashboard = () => {
-
-  
     const [showUserDrop, setShowUserDrop] = useState(false);
     const userDropdownRef = useRef(null);
 
@@ -32,16 +31,19 @@ const Dashboard = () => {
     };
 
     const handleClickOutside = (event) => {
-      if (userDropdownRef.current && !userDropdownRef.current.contains(event.target)) {
-        setShowUserDrop(false);
-      }
+        if (
+            userDropdownRef.current &&
+            !userDropdownRef.current.contains(event.target)
+        ) {
+            setShowUserDrop(false);
+        }
     };
-  
+
     useEffect(() => {
-      document.addEventListener("click", handleClickOutside);
-      return () => {
-        document.removeEventListener("click", handleClickOutside);
-      };
+        document.addEventListener("click", handleClickOutside);
+        return () => {
+            document.removeEventListener("click", handleClickOutside);
+        };
     }, []);
 
     return (
@@ -67,13 +69,19 @@ const Dashboard = () => {
                             </div>
                             <div className="DashboardNavLinks">
                                 <div className="DashboardNavLinksRow1">
-                                    <Link to={'/dashboardhome'} className="DashboardNavLinksItem ">
+                                    <Link
+                                        to={""}
+                                        className="DashboardNavLinksItem "
+                                    >
                                         <span>
                                             <IoHomeOutline className="DashboardNavlinksIcons" />
                                         </span>
                                         <span>Home</span>
                                     </Link>
-                                    <Link to={'/deposit'} className="DashboardNavLinksItem active">
+                                    <Link
+                                        to={"deposit"}
+                                        className="DashboardNavLinksItem "
+                                    >
                                         <span>
                                             <LuHardDriveDownload className="DashboardNavlinksIcons" />
                                         </span>
@@ -81,13 +89,19 @@ const Dashboard = () => {
                                     </Link>
                                 </div>
                                 <div className="DashboardNavLinksRow2">
-                                    <Link to={'/withdrawal'} className="DashboardNavLinksItem">
+                                    <Link
+                                        to={"withdrawal"}
+                                        className="DashboardNavLinksItem"
+                                    >
                                         <span>
                                             <FaArrowAltCircleUp className="DashboardNavlinksIcons" />
                                         </span>
                                         <span>Withdrawal</span>
                                     </Link>
-                                    <Link to={'/profit-history'} className="DashboardNavLinksItem">
+                                    <Link
+                                        to={"profit-history"}
+                                        className="DashboardNavLinksItem"
+                                    >
                                         <span>
                                             <FaHistory className="DashboardNavlinksIcons" />
                                         </span>
@@ -95,13 +109,19 @@ const Dashboard = () => {
                                     </Link>
                                 </div>
                                 <div className="DashboardNavLinksRow3">
-                                    <Link to={'/transactions'} className="DashboardNavLinksItem">
+                                    <Link
+                                        to={"transactions"}
+                                        className="DashboardNavLinksItem"
+                                    >
                                         <span>
                                             <BsFillCreditCard2BackFill className="DashboardNavlinksIcons" />
                                         </span>
                                         <span>Transactions</span>
                                     </Link>
-                                    <Link to={'/transfer-funds'} className="DashboardNavLinksItem">
+                                    <Link
+                                        to={"transfer-funds"}
+                                        className="DashboardNavLinksItem"
+                                    >
                                         <span>
                                             <BiTransfer className="DashboardNavlinksIcons" />
                                         </span>
@@ -109,13 +129,19 @@ const Dashboard = () => {
                                     </Link>
                                 </div>
                                 <div className="DashboardNavLinksRow4">
-                                    <Link to={'/profile'} className="DashboardNavLinksItem">
+                                    <Link
+                                        to={"profile"}
+                                        className="DashboardNavLinksItem"
+                                    >
                                         <span>
                                             <FaAddressCard className="DashboardNavlinksIcons" />
                                         </span>
                                         <span>Profile</span>
                                     </Link>
-                                    <Link to={'/trading-plans'} className="DashboardNavLinksItem">
+                                    <Link
+                                        to={"trading-plans"}
+                                        className="DashboardNavLinksItem"
+                                    >
                                         <span>
                                             <FaHandHoldingDollar className="DashboardNavlinksIcons" />
                                         </span>
@@ -123,13 +149,19 @@ const Dashboard = () => {
                                     </Link>
                                 </div>
                                 <div className="DashboardNavLinksRow5">
-                                    <Link to={'/my-plans'} className="DashboardNavLinksItem">
+                                    <Link
+                                        to={"my-plans"}
+                                        className="DashboardNavLinksItem"
+                                    >
                                         <span>
                                             <LiaHandHoldingHeartSolid className="DashboardNavlinksIcons" />
                                         </span>
                                         <span>My Plans</span>
                                     </Link>
-                                    <Link to={'/referrals'} className="DashboardNavLinksItem">
+                                    <Link
+                                        to={"referrals"}
+                                        className="DashboardNavLinksItem"
+                                    >
                                         <span>
                                             <LuRepeat2 className="DashboardNavlinksIcons" />
                                         </span>
@@ -159,7 +191,7 @@ const Dashboard = () => {
                                 <div
                                     className="DashboardMainHeaderBoxAccount"
                                     onClick={handleShowUserDropdown}
-                                    ref={userDropdownRef} 
+                                    ref={userDropdownRef}
                                 >
                                     <span>
                                         <HiMiniUser className="HiMiniUser" />
@@ -190,7 +222,10 @@ const Dashboard = () => {
                             ) : null}
                         </div>
                         <div className="DashboardMainContent">
-                          {/*  */}
+                            <Outlet />
+                        </div>
+                        <div className="DashboardMainFooter">
+                            <p>All Rights Reserved © Swift Earn Trade 2023</p>
                         </div>
                     </div>
                 </div>

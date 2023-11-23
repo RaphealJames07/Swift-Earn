@@ -256,6 +256,7 @@
 .DashboardMain{
   width: 80%;
   height: max-content;
+  padding-left: 30px;
 }
 
 .DashboardMainHeader{
@@ -400,6 +401,23 @@
   gap: 10px;
 }
 
+.DashboardMainContent{
+  width: 100%;
+  height: max-content;
+  margin-top: 20px;
+}
+
+.DashboardMainFooter{
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: end;
+  padding-left: 20px;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgb(132, 146, 166);
+  line-height: 23.8px;
+}
 
 /* End of Media Query Styling For Desktop Device */
 
