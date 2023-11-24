@@ -8,83 +8,15 @@ import Deposit from "./Pages/Deposit/Deposit";
 import Withdrawal from "./Pages/Withdrawal/Withdrawal";
 import ProfitHistory from "./Pages/ProfitHistory/ProfitHistory";
 import Transactions from "./Pages/Transactions/Transactions";
-import Transfer from "./Pages/TransferFunds/Transfer";
+import Transfer from "./Pages/TransferFunds/TransferFunds";
 import Profile from "./Pages/Profile/Profile";
 import TradingPlans from "./Pages/TradingPlans/TradingPlans";
 import MyPlans from "./Pages/MyPlans/MyPlans";
 import Referrals from "./Pages/Referrals/Referrals";
 import Login from "./Pages/Auth/Login";
-// import {BrowserRouter, Route, Routes} from "react-router-dom";
-// import Login from "./Pages/Auth/Login";
-// import Register from "./Pages/Auth/Register";
-// import HomeE from "./HomeE";
-// import Dashboard from "./Components/Dashboard/Dashboard";
-// import DashHome from "./Pages/DashHome/DashHome";
-// import Deposit from "./Pages/Deposit/Deposit";
-// import Deposit from "./Pages/Deposit/Deposit";
+import ConfirmPassword from "./Pages/Withdrawal/ConfirmPassword";
+import WithdrawFunds from "./Pages/Withdrawal/WithdrawFunds";
 
-// const App = () => {
-//     return (
-//         <>
-//             <BrowserRouter>
-//                 <Routes>
-//                     <Route path="/" element={<HomeE />} />
-//                     <Route path="/login" element={<Login />} />
-//                     <Route path="/register" element={<Register />} />
-//                     <Route
-//                         path="/dashboard"
-//                         element={
-//                             <Dashboard>
-//                                 {/* Nested routes */}
-//                                 <Route index element={<DashHome />} />
-//                                 <Route path="/deposit" element={<Deposit />} />
-//                                 {/* Add more nested routes as needed */}
-//                             </Dashboard>
-//                         }
-//                     />
-//                 </Routes>
-//             </BrowserRouter>
-//         </>
-//     );
-// };
-
-// export default App;
-
-// import React from 'react';
-// import { BrowserRouter, Route, Routes } from 'react-router-dom';
-// import HomeE from './HomeE';
-// import Login from './Pages/Auth/Login';
-// import Register from './Pages/Auth/Register';
-// import Dashboard from './Components/Dashboard/Dashboard';
-// import DashHome from './Pages/DashHome';
-// import Deposit from './Pages/Deposit';
-
-// const App = () => {
-//   return (
-//     <>
-//       <BrowserRouter>
-//         <Routes>
-//           <Route path="/" element={<HomeE />} />
-//           <Route
-//             path="/*"
-//             element={
-//               <Dashboard>
-//                 {/* Nested routes */}
-//                 <Route index element={<DashHome />} />
-//                 <Route path="deposit" element={<Deposit/>} />
-//                 {/* Add more nested routes as needed */}
-//               </Dashboard>
-//             }
-//           />
-//           <Route path="/login" element={<Login />} />
-//           <Route path="/register" element={<Register />} />
-//         </Routes>
-//       </BrowserRouter>
-//     </>
-//   );
-// };
-
-// export default App;
 
 const router = createBrowserRouter([
   {
@@ -102,6 +34,13 @@ const router = createBrowserRouter([
     </>
   },
   {
+    path: "user/confirm-password",
+    element: <>
+    <ScrollToTop/>
+    <ConfirmPassword/>
+    </>
+  },
+  {
     path:"dashboard",
     element:<Dashboard/>,
     children: [
@@ -116,6 +55,10 @@ const router = createBrowserRouter([
       {
         path: "withdrawal",
         element: <Withdrawal/>,
+      },
+      {
+        path: "withdraw-funds",
+        element: <WithdrawFunds/>,
       },
       {
         path: "profit-history",
