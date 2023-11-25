@@ -16,80 +16,139 @@ import Referrals from "./Pages/Referrals/Referrals";
 import Login from "./Pages/Auth/Login";
 import ConfirmPassword from "./Pages/Withdrawal/ConfirmPassword";
 import WithdrawFunds from "./Pages/Withdrawal/WithdrawFunds";
+import Payment from "./Pages/Deposit/Payment";
 
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <>
-      <ScrollToTop/>
-      <HomeRoute/>
-    </>,
-  },
-  {
-    path: "login",
-    element: <>
-    <ScrollToTop/>
-    <Login/>
-    </>
-  },
-  {
-    path: "user/confirm-password",
-    element: <>
-    <ScrollToTop/>
-    <ConfirmPassword/>
-    </>
-  },
-  {
-    path:"dashboard",
-    element:<Dashboard/>,
-    children: [
-      {
-        path: "",
-        element: <DashHome/>,
-      },
-      {
-        path: "deposit",
-        element: <Deposit/>,
-      },
-      {
-        path: "withdrawal",
-        element: <Withdrawal/>,
-      },
-      {
-        path: "withdraw-funds",
-        element: <WithdrawFunds/>,
-      },
-      {
-        path: "profit-history",
-        element: <ProfitHistory/>,
-      },
-      {
-        path: "transactions",
-        element: <Transactions/>,
-      },
-      {
-        path: "transfer-funds",
-        element: <Transfer/>,
-      },
-      {
-        path: "profile",
-        element: <Profile/>,
-      },
-      {
-        path: "trading-plans",
-        element: <TradingPlans/>,
-      },
-      {
-        path: "my-plans",
-        element: <MyPlans/>,
-      },
-      {
-        path: "referrals",
-        element: <Referrals/>,
-      },
-    ]
-  }
+    {
+        path: "/",
+        element: (
+            <>
+                <ScrollToTop />
+                <HomeRoute />
+            </>
+        ),
+    },
+    {
+        path: "login",
+        element: (
+            <>
+                <ScrollToTop />
+                <Login />
+            </>
+        ),
+    },
+    {
+        path: "user/confirm-password",
+        element: (
+            <>
+                <ScrollToTop />
+                <ConfirmPassword />
+            </>
+        ),
+    },
+    {
+        path: "dashboard",
+        element: <Dashboard />,
+        children: [
+            {
+                path: "",
+                element: (
+                    <>
+                        <ScrollToTop />,
+                        <DashHome />,
+                    </>
+                ),
+            },
+            {
+                path: "deposit",
+                element: (
+                    <>
+                        <ScrollToTop />,
+                        <Deposit />,
+                    </>
+                ),
+            },
+            {
+                path: "deposit/payment",
+                element: (
+                    <>
+                        <ScrollToTop />,
+                        <Payment />,
+                    </>
+                ),
+            },
+            {
+                path: "withdrawal",
+                element: (
+                    <>
+                        <ScrollToTop />,
+                        <Withdrawal />,
+                    </>
+                ),
+            },
+            {
+                path: "withdraw-funds",
+                element: (
+                    <>
+                        <ScrollToTop />,
+                        <WithdrawFunds />,
+                    </>
+                ),
+            },
+            {
+                path: "profit-history",
+                element: (
+                    <>
+                        <ScrollToTop />,
+                        <ProfitHistory />,
+                    </>
+                ),
+            },
+            {
+                path: "transactions",
+                element: <>
+                <ScrollToTop/>,
+                <Transactions />,
+                </>
+            },
+            {
+                path: "transfer-funds",
+                element: <>
+                <ScrollToTop/>,
+                <Transfer />,
+                </>
+            },
+            {
+                path: "profile",
+                element: <>
+                <ScrollToTop/>
+                <Profile />,
+                </>
+            },
+            {
+                path: "trading-plans",
+                element: <>
+                <ScrollToTop/>,
+                <TradingPlans />,
+                </>
+            },
+            {
+                path: "my-plans",
+                element: <>
+                <ScrollToTop/>
+                <MyPlans />,
+                </>
+            },
+            {
+                path: "referuser",
+                element: <>
+                <ScrollToTop/>
+                <Referrals />,
+                </>
+            },
+        ],
+    },
 ]);
 
 function App() {

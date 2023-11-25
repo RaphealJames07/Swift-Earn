@@ -1,3 +1,4 @@
+import {NavLink} from "react-router-dom";
 import "./Deposit.css";
 
 const Deposit = () => {
@@ -17,7 +18,9 @@ const Deposit = () => {
                                 <span>BITCOIN PAYMENT</span>
                                 <input type="radio" />
                             </div>
+                            <NavLink to={"payment"}>
                                 <button>Proceed to payment</button>
+                            </NavLink>
                         </div>
                     </div>
                     <div className="DepositContentRight">

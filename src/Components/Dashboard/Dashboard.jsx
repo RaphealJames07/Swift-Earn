@@ -21,6 +21,7 @@ import {HiMiniUser} from "react-icons/hi2";
 import {FiLogOut} from "react-icons/fi";
 import {useState, useEffect, useRef} from "react";
 import {Outlet} from "react-router-dom";
+import { RiMenu3Fill } from "react-icons/ri";
 
 const Dashboard = () => {
     const [showUserDrop, setShowUserDrop] = useState(false);
@@ -46,14 +47,27 @@ const Dashboard = () => {
         };
     }, []);
 
+    const [showNav, setShowNav] = useState(false)
+    
+    const handleShowNav = () =>{
+        setShowNav(!showNav)
+    }
+
+    const handleLinkClick = () => {
+        if (window.innerWidth <= 480) {
+          handleShowNav();
+        }
+      };
+
     return (
         <>
-            <div className="DashboardBody">
-                <div className="DashboardWrapper">
-                    <div className="DashboardNav">
+            <div className="DashboardBody bigScreen">
+                <div className={`DashboardWrapper ${showNav? '':"active" }`}>
+                    <div className={`DashboardNav ${showNav? '':"active"}`}>
                         <div className="DashboardNavWrapper">
                             <div className="DashboardNavLogo">
                                 <img src={Logo} alt="" />
+                                <RiMenu3Fill className="DashboardNavLogoMenuFill" onClick={handleShowNav}/>
                             </div>
                             <div className="DashboardNavAccountView">
                                 <div className="DashboardNavAccountViewPfp">
@@ -72,6 +86,8 @@ const Dashboard = () => {
                                     <Link
                                         to={""}
                                         className="DashboardNavLinksItem "
+                                        
+                                        onClick={handleLinkClick}
                                     >
                                         <span>
                                             <IoHomeOutline className="DashboardNavlinksIcons" />
@@ -81,6 +97,7 @@ const Dashboard = () => {
                                     <Link
                                         to={"deposit"}
                                         className="DashboardNavLinksItem "
+                                        onClick={handleLinkClick}
                                     >
                                         <span>
                                             <LuHardDriveDownload className="DashboardNavlinksIcons" />
@@ -92,6 +109,7 @@ const Dashboard = () => {
                                     <Link
                                         to={"withdrawal"}
                                         className="DashboardNavLinksItem"
+                                        onClick={handleLinkClick}
                                     >
                                         <span>
                                             <FaArrowAltCircleUp className="DashboardNavlinksIcons" />
@@ -101,6 +119,7 @@ const Dashboard = () => {
                                     <Link
                                         to={"profit-history"}
                                         className="DashboardNavLinksItem"
+                                        onClick={handleLinkClick}
                                     >
                                         <span>
                                             <FaHistory className="DashboardNavlinksIcons" />
@@ -112,6 +131,7 @@ const Dashboard = () => {
                                     <Link
                                         to={"transactions"}
                                         className="DashboardNavLinksItem"
+                                        onClick={handleLinkClick}
                                     >
                                         <span>
                                             <BsFillCreditCard2BackFill className="DashboardNavlinksIcons" />
@@ -121,6 +141,7 @@ const Dashboard = () => {
                                     <Link
                                         to={"transfer-funds"}
                                         className="DashboardNavLinksItem"
+                                        onClick={handleLinkClick}
                                     >
                                         <span>
                                             <BiTransfer className="DashboardNavlinksIcons" />
@@ -132,6 +153,7 @@ const Dashboard = () => {
                                     <Link
                                         to={"profile"}
                                         className="DashboardNavLinksItem"
+                                        onClick={handleLinkClick}
                                     >
                                         <span>
                                             <FaAddressCard className="DashboardNavlinksIcons" />
@@ -140,7 +162,9 @@ const Dashboard = () => {
                                     </Link>
                                     <Link
                                         to={"trading-plans"}
-                                        className="DashboardNavLinksItem"
+                                        className="DashboardNavLinksItem"   
+                                        onClick={handleLinkClick}
+
                                     >
                                         <span>
                                             <FaHandHoldingDollar className="DashboardNavlinksIcons" />
@@ -152,6 +176,7 @@ const Dashboard = () => {
                                     <Link
                                         to={"my-plans"}
                                         className="DashboardNavLinksItem"
+                                        onClick={handleLinkClick}
                                     >
                                         <span>
                                             <LiaHandHoldingHeartSolid className="DashboardNavlinksIcons" />
@@ -159,8 +184,9 @@ const Dashboard = () => {
                                         <span>My Plans</span>
                                     </Link>
                                     <Link
-                                        to={"referrals"}
+                                        to={"referuser"}
                                         className="DashboardNavLinksItem"
+                                        onClick={handleLinkClick}
                                     >
                                         <span>
                                             <LuRepeat2 className="DashboardNavlinksIcons" />
@@ -182,20 +208,20 @@ const Dashboard = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="DashboardMain">
+                    <div className={`DashboardMain ${showNav? " ": "active" }`}>
                         <div className="DashboardMainHeader">
                             <div className="DashboardMainHeaderBox">
                                 <div className="DashboardMainHeaderBoxHambuger">
-                                    <MdOutlineMenu className="MdOutlineMenu" />
+                                    <MdOutlineMenu className="MdOutlineMenu" onClick={handleShowNav}/>
                                 </div>
                                 <div
                                     className="DashboardMainHeaderBoxAccount"
                                     onClick={handleShowUserDropdown}
                                     ref={userDropdownRef}
                                 >
-                                    <span>
+                                    <div>
                                         <HiMiniUser className="HiMiniUser" />
-                                    </span>
+                                    </div>
                                     <p>Eflex Media</p>
                                 </div>
                             </div>

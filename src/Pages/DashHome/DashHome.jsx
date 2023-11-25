@@ -118,7 +118,7 @@ const DashHome = () => {
                             <p className="DashHomeMainContenRecentTransactionDivBoxEndText">
                                 <span>
                                     <FaNotesMedical />
-                                </span>{" "}
+                                </span> 
                                 View all transactions
                             </p>
                             <div className="DashHomeMainContenRecentTransactionDivBoxTop">
@@ -154,7 +154,7 @@ const DashHome = () => {
                 </div>
             </div>
         </>
-    );
-};
+    )
+}
 
 export default DashHome;
